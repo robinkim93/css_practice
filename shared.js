@@ -13,14 +13,19 @@ for (let i = 0; i < plusPlanButtons.length; i++) {
 }
 
 const closeModal = () => {
+  if (modalNoButton) {
+    modal.classList.remove("open");
+  }
   backdrop.classList.remove("open");
-  modal.classList.remove("open");
+
   mobileNav.classList.remove("open");
 };
 
-backdrop.addEventListener("click", closeModal);
+if (modalNoButton) {
+  modalNoButton.addEventListener("click", closeModal);
+}
 
-modalNoButton.addEventListener("click", closeModal);
+backdrop.addEventListener("click", closeModal);
 
 hamburgerButton.addEventListener("click", () => {
   backdrop.classList.add("open");
